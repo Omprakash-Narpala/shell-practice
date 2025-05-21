@@ -1,4 +1,4 @@
 #!/bin/bash
 
-SHOW=$(date)
-echo "Today's date is $SHOW"
+TIMESTAMP=$(date)
+echo "Script executed at: $TIMESTAMP"
