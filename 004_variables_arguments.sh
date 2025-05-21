@@ -16,4 +16,4 @@ echo "All arguments as a single string: $*"
 echo "All arguments as individual strings: $@"
 echo "First argument: $1"
 echo "Second argument: $2"
-echo "Third argument: $3:
+echo "Third argument: $3"
