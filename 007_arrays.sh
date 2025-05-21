@@ -2,4 +2,4 @@
 
 SUBJECTS=("Maths" "Hindi" "Telugu" "English")
 
-echo "Favorite subject: {$SUBJECTS[0]}
+echo "Favorite subject: {$SUBJECTS[0]}"
