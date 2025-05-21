@@ -1,6 +1,6 @@
 #!/bib/bash
 
-if [ 1 -lt 10 ]
+if [ 12 -lt 10 ]
 then
     echo "Given number is less than 10"
 else
