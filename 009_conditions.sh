@@ -1,5 +1,7 @@
 #!/bib/bash
 
+#write a program if given number is less than 10 or not
+
 NUMBER=$1
 
 if [ $NUMBER -lt 10 ]
