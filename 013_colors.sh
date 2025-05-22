@@ -44,7 +44,7 @@ if [ $? -ne 0 ]
         dnf install python3 -y
         VALIDATE_PACKAGE $? "Python3"
     else
-        echo -e "$BPython3 is already installed. Nothing to do.$N"
+        echo -e "$B Python3 is already installed. Nothing to do.$N"
 fi
 
 dnf list installed nginx
