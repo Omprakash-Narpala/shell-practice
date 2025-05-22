@@ -22,7 +22,7 @@ if [ $? -ne 0 ]
                 then
                     echo "Installing MySQL is intalling.. SUCCESS"
                 else
-                    echo "MySQL is already 
+                    echo "Installing MySQL is FAILURE"
                     exit 1
             fi
     else
