@@ -67,19 +67,19 @@ fi
 
 VALIDATE_PACKAGES (){
 
-dnf list installed $1
+dnf list installed $2
 
-if [ $2 -eq 0 ]
+if [ $1 -eq 0 ]
     then
-        echo "$1 is already installed. Nothing to do."
+        echo "$2 is already installed. Nothing to do."
     else
-        echo "$1 is not installed.. going to install"
-        dnf install $1 -y
-        if [ $2 -eq 0 ]
+        echo "$2 is not installed.. going to install"
+        dnf install $2 -y
+        if [ $1 -eq 0 ]
             then
-                echo "Installing $1 is... SUCCESS"
+                echo "Installing $2 is... SUCCESS"
             else
-                echo "Installing $1 is... FAILURE"
+                echo "Installing $2 is... FAILURE"
                 exit 1
         fi 
 fi
@@ -87,7 +87,7 @@ fi
 }
 
 
-VALIDATE_PACKAGES "mysql" $?
+VALIDATE_PACKAGES $? "mysql"
 #VALIDATE_PACKAGES "python3" $?
 #VALIDATE_PACKAGES "nginx" $?
 
