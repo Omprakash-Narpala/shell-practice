@@ -8,19 +8,24 @@ if [ $USERID -ne 0 ]
         echo "You are running with root access"
 fi
 
+VALIDATE_PACKAGE ()
+{
+    if [ $1 -eq 0 ]
+        then
+            echo "$2 Installation is ... SUCCESS"
+        else
+            echo "$2 Installation is ... FAILURE"
+            exit 1
+    fi
+}
+
 dnf list installed mysql
 
 if [ $? -ne 0 ]
     then
         echo "MySQL is not installed.. going to install it"
         dnf install mysql -y
-        if [ $? -eq 0 ]
-        then
-            echo "MySQL Installation is ... SUCCESS"
-        else
-            echo "MySQL Installation is ... FAILURE"
-            exit 1
-        fi
+        VALIDATE_PACKAGE $? "MySQL"
     else
         echo "MySQL is already installed. Nothing to do."
 fi
@@ -31,13 +36,7 @@ if [ $? -ne 0 ]
     then
         echo "Python is not installed.. going to install it"
         dnf install python -y
-        if [ $? -eq 0 ]
-        then
-            echo "Python Installation is ... SUCCESS"
-        else
-            echo "Python Installation is ... FAILURE"
-            exit 1
-        fi
+        VALIDATE_PACKAGE $? "Python"
     else
         echo "Python is already installed. Nothing to do."
 fi
@@ -48,13 +47,7 @@ if [ $? -ne 0 ]
     then
         echo "Nginx is not installed.. going to install it"
         dnf install nginx -y
-        if [ $? -eq 0 ]
-        then
-            echo "Nginx Installation is ... SUCCESS"
-        else
-            echo "Nginx Installation is ... FAILURE"
-            exit 1
-        fi
+        VALIDATE_PACKAGE $? "Nginix"
     else
         echo "Nginx is already installed. Nothing to do."
 fi
