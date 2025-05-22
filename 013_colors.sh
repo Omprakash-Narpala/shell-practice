@@ -5,7 +5,7 @@ B=\e[34m
 G=\e[32m
 M=\e[36m
 
-N=\e[om
+N=\e[0m
 
 if [ $USERID -ne 0 ]
     then
