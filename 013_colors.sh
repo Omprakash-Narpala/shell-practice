@@ -55,5 +55,5 @@ if [ $? -ne 0 ]
         dnf install nginx -y
         VALIDATE_PACKAGE $? "Nginix"
     else
-        echo -e "$BNginx is already installed. Nothing to do.$N"
+        echo -e "$B Nginx is already installed. Nothing to do.$N"
 fi
