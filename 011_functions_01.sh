@@ -74,7 +74,7 @@ if [ $2 -eq 0 ]
         echo "$1 is already installed. Nothing to do."
     else
         echo "$1 is not installed.. going to install"
-        dnf install mysql -y
+        dnf install $1 -y
         if [ $2 -eq 0 ]
             then
                 echo "Installing $1 is... SUCCESS"
@@ -85,6 +85,7 @@ if [ $2 -eq 0 ]
 fi
 
 }
+
 
 VALIDATE_PACKAGES "mysql" $?
 #VALIDATE_PACKAGES "python3" $?
