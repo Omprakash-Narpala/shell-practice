@@ -1,10 +1,10 @@
 #!/bin/bash
 USERID=$(id -u)
-R=\e[31m
-B=\e[34m
-G=\e[32m
-M=\e[36m
-N=\e[0m
+R="\e[31m"
+B="\e[34m"
+G="\e[32m"
+M="\e[36m"
+N="\e[0m"
 
 if [ $USERID -ne 0 ]
     then
@@ -33,7 +33,7 @@ if [ $? -ne 0 ]
         dnf install mysql -y
         VALIDATE_PACKAGE $? "MySQL"
     else
-        echo -e "$B MySQL is already installed. Nothing to do. $N"
+        echo -e "$B MySQL is already installed. Nothing to do.$N"
 fi
 
 dnf list installed python3
