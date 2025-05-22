@@ -65,29 +65,43 @@ if [ $USERID -ne 0 ]
         echo "You are running with root access"
 fi
 
-VALIDATE_PACKAGES ()
-{
-dnf list installed $2
+# VALIDATE_PACKAGES ()
+# {
+# dnf list installed $2
 
-if [ $1 -ne 0 ]
+# if [ $1 -ne 0 ]
+#     then
+#         echo "$2 is already installed. Nothing to do."
+#     else
+#         echo "$2 is not installed.. going to install"
+#         dnf install $2 -y
+#         if [ $1 -eq 0 ]
+#             then
+#                 echo "Installing $2 is... SUCCESS"
+#             else
+#                 echo "Installing $2 is... FAILURE"
+#                 exit 1
+#         fi 
+# fi
+# }
+
+dnf list installed mysql
+if [ $? -ne 0 ]
     then
-        echo "$2 is already installed. Nothing to do."
-    else
-        echo "$2 is not installed.. going to install"
-        dnf install $2 -y
-        if [ $1 -eq 0 ]
+        echo "MySQL is not installed.. going to install not"
+        dnf install mysql -y
+        if [ $? -eq 0 ]
             then
-                echo "Installing $2 is... SUCCESS"
+            echo "MySQL installation is ... SUCCESS"
             else
-                echo "Installing $2 is... FAILURE"
-                exit 1
-        fi 
+            echo "MySQL installation is ... FAILURE"
+            exit 1
+        fi
+    else
+        echo "MySQL is already installed. Nothing to do."
 fi
 
-}
-
-
-VALIDATE_PACKAGES $? "mysql"
+#VALIDATE_PACKAGES $? "mysql"
 #VALIDATE_PACKAGES "python3" $?
 #VALIDATE_PACKAGES "nginx" $?
 
