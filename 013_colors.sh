@@ -30,15 +30,15 @@ if [ $? -ne 0 ]
         echo -e "\e[34mMySQL is already installed. Nothing to do.\e[0m"
 fi
 
-dnf list installed python
+dnf list installed python3
 
 if [ $? -ne 0 ]
     then
-        echo -e "\e[36mPython is not installed.. going to install it\e[0m"
-        dnf install python -y
-        VALIDATE_PACKAGE $? "Python"
+        echo -e "\e[36mPython3 is not installed.. going to install it\e[0m"
+        dnf install python3 -y
+        VALIDATE_PACKAGE $? "Python3"
     else
-        echo -e "\e[34mPython is already installed. Nothing to do.\e[0m"
+        echo -e "\e[34mPython3 is already installed. Nothing to do.\e[0m"
 fi
 
 dnf list installed nginx
