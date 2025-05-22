@@ -27,5 +27,4 @@ if [ $? -ne 0 ]
             fi
     else
         echo "MySQL is already installed. Nothing to do."
-        exit 1
 fi
