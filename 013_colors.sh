@@ -34,7 +34,7 @@ dnf list installed python
 
 if [ $? -ne 0 ]
     then
-        echo -e "\e[36mPython is not installed.. going to install it\e[0m"
+        echo -e "\e[36m Python is not installed.. going to install it\e[0m"
         dnf install python -y
         VALIDATE_PACKAGE $? "Python"
     else
