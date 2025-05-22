@@ -14,7 +14,7 @@ dnf list installed mysql
 # If not installed $? is 0.
 # If installed $? is not zero.
 
-if [ $? -eq 0 ]
+if [ $? -ne 0 ]
     then
         dnf install mysql
     else
