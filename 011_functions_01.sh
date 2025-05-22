@@ -65,11 +65,11 @@ if [ $USERID -ne 0 ]
         echo "You are running with root access"
 fi
 
-VALIDATE_PACKAGES (){
-
+VALIDATE_PACKAGES ()
+{
 dnf list installed $2
 
-if [ $1 -eq 0 ]
+if [ $1 -ne 0 ]
     then
         echo "$2 is already installed. Nothing to do."
     else
