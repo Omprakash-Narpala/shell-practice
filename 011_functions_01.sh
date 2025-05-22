@@ -88,7 +88,7 @@ fi
 }
 
 VALIDATE_PACKAGES "mysql" $?
-VALIDATE_PACKAGES "python" $?
+VALIDATE_PACKAGES "python3" $?
 VALIDATE_PACKAGES "nginx" $?
 
 
