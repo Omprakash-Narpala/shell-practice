@@ -85,21 +85,43 @@ fi
 # fi
 # }
 
-dnf list installed mysql
-if [ $? -ne 0 ]
+VALIDATE_PACKAGES ()
+{
+dnf list installed $1
+if [ $2 -ne 0 ]
     then
-        echo "MySQL is not installed.. going to install not"
-        dnf install mysql -y
+        echo "$1 is not installed.. going to install not"
+        dnf install $1 -y
         if [ $? -eq 0 ]
             then
-            echo "MySQL installation is ... SUCCESS"
+            echo "$1 installation is ... SUCCESS"
             else
-            echo "MySQL installation is ... FAILURE"
+            echo "$1 installation is ... FAILURE"
             exit 1
         fi
     else
-        echo "MySQL is already installed. Nothing to do."
+        echo "$1 is already installed. Nothing to do."
 fi
+}
+
+VALIDATE_PACKAGES "mysql" $?
+
+
+# dnf list installed mysql
+# if [ $? -ne 0 ]
+#     then
+#         echo "MySQL is not installed.. going to install not"
+#         dnf install mysql -y
+#         if [ $? -eq 0 ]
+#             then
+#             echo "MySQL installation is ... SUCCESS"
+#             else
+#             echo "MySQL installation is ... FAILURE"
+#             exit 1
+#         fi
+#     else
+#         echo "MySQL is already installed. Nothing to do."
+# fi
 
 #VALIDATE_PACKAGES $? "mysql"
 #VALIDATE_PACKAGES "python3" $?
