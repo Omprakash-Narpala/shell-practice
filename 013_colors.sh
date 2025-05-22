@@ -1,20 +1,27 @@
 #!/bin/bash
 USERID=$(id -u)
+R=\e[31m
+B=\e[34m
+G=\e[32m
+M=\e[36m
+
+N=\e[om
+
 if [ $USERID -ne 0 ]
     then
-        echo -e "\e[31mError: Please run the script with root access\e[0m"
+        echo -e "$RError: Please run the script with root access$N"
         exit 1
     else
-        echo -e "\e[34You are running with root access\e[0m"
+        echo -e "$BYou are running with root access$N"
 fi
 
 VALIDATE_PACKAGE ()         #Defined function
 {
     if [ $1 -eq 0 ]
         then
-            echo -e "\e[32m$2 Installation is ... SUCCESS\e[0m"
+            echo -e "$G$2 Installation is ... SUCCESS$N"
         else
-            echo -e "\e[31m$2 Installation is ... FAILURE\e[0m"
+            echo -e "$R$2 Installation is ... FAILURE$N"
             exit 1
     fi
 }
@@ -23,31 +30,31 @@ dnf list installed mysql
 
 if [ $? -ne 0 ]
     then
-        echo -e "\e[36mMySQL is not installed.. going to install it\e[0m"
+        echo -e "$MMySQL is not installed.. going to install it$N"
         dnf install mysql -y
         VALIDATE_PACKAGE $? "MySQL"
     else
-        echo -e "\e[34mMySQL is already installed. Nothing to do.\e[0m"
+        echo -e "$BMySQL is already installed. Nothing to do.$N"
 fi
 
 dnf list installed python3
 
 if [ $? -ne 0 ]
     then
-        echo -e "\e[36mPython3 is not installed.. going to install it\e[0m"
+        echo -e "$MPython3 is not installed.. going to install it$N"
         dnf install python3 -y
         VALIDATE_PACKAGE $? "Python3"
     else
-        echo -e "\e[34mPython3 is already installed. Nothing to do.\e[0m"
+        echo -e "$BPython3 is already installed. Nothing to do.$N"
 fi
 
 dnf list installed nginx
 
 if [ $? -ne 0 ]
     then
-        echo -e "\e[36mNginx is not installed.. going to install it\e[0m"
+        echo -e "$MNginx is not installed.. going to install it$N"
         dnf install nginx -y
         VALIDATE_PACKAGE $? "Nginix"
     else
-        echo -e "\e[34mNginx is already installed. Nothing to do.\e[0m"
+        echo -e "$BNginx is already installed. Nothing to do.$N"
 fi
